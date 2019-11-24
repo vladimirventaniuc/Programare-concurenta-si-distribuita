@@ -2,10 +2,17 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 #include <string>
+#include <fstream>
 #include <omp.h>
 using namespace cv;
 using namespace std;
-
+void saveTime(string file, double time_spent){
+	ofstream fp;
+	string file2 = "./result/"+file+".txt";
+   fp.open(file2.c_str(),fstream::app);
+   fp<<time_spent<<endl;
+   fp.close();
+}
 Mat invertColors(Mat image){
 	int row;
 	int col;
@@ -14,7 +21,7 @@ Mat invertColors(Mat image){
     double end;
 
     begin = omp_get_wtime();
-    #pragma omp parallel for shared(image, result) private(row, col) collapse(2)
+    #pragma omp parallel for shared(image, result) private(row, col) collapse(2) schedule(dynamic)
 	for(row = 0; row < image.rows; row++){
 		for(col = 0; col < image.cols; col++){
 		    Vec3b pixel = image.at<Vec3b>(row, col);
@@ -28,7 +35,8 @@ Mat invertColors(Mat image){
 	}
 
 	end = omp_get_wtime();
-	cout<<"Invert colors time: "<<end-begin<<endl;
+	// cout<<"Invert colors time: "<<end-begin<<endl;
+   saveTime("Parallelinvertcolor",end-begin);
 	return result;
 }
 
@@ -54,7 +62,7 @@ Mat blurImage(Mat image){
     int pos;
 
     begin = omp_get_wtime();
-    #pragma omp parallel for shared(image, result, pos) private(row, col) collapse(2)
+    #pragma omp parallel for shared(image, result) private(row, col, pos) collapse(2) schedule(dynamic)
 	for(row = 0; row < image.rows; row++){
 		for(col = 0; col < image.cols; col++){
 			int r = 0;
@@ -83,7 +91,8 @@ Mat blurImage(Mat image){
 		}
 	}
 	end = omp_get_wtime();
-	cout<<"Blur image time: "<<end - begin<<endl;
+	// cout<<"Blur image time: "<<end - begin<<endl;
+	saveTime("Parallelblurcolor",end-begin);
 	return result;
 }
 
@@ -95,7 +104,7 @@ Mat rotateImage90(Mat image){
     double end;
 
 	begin = omp_get_wtime();
-    #pragma omp parallel for shared(image, result) private(row, col) collapse(2)
+    #pragma omp parallel for shared(image, result) private(row, col) collapse(2) schedule(dynamic)
 	for(col = 0; col < image.cols; col++){ 
 		for(row = 0; row < image.rows; row++){
 			Vec3b pixel = image.at<Vec3b>(image.rows-row-1, col);
@@ -103,7 +112,8 @@ Mat rotateImage90(Mat image){
 		}
 	}
 	end = omp_get_wtime();
-	cout<<"Rotate image time: "<<end-begin<<endl;
+	// cout<<"Rotate image time: "<<end-begin<<endl;
+	saveTime("Parallelrotate90",end-begin);
 	return result;
 }
 
@@ -115,7 +125,7 @@ Mat rotateImage180(Mat image){
     double end;
 
 	begin = omp_get_wtime();
-	#pragma omp parallel for shared(image, result) private(row, col) collapse(2)
+	#pragma omp parallel for shared(image, result) private(row, col) collapse(2) schedule(dynamic)
 	for(row = image.rows - 1; row >= 0; row--){ 
 		for(col = image.cols - 1; col >= 0; col--){
 			Vec3b pixel = image.at<Vec3b>(row, col);
@@ -125,7 +135,8 @@ Mat rotateImage180(Mat image){
 
     
 	end = omp_get_wtime();
-	cout<<"Rotate image time: "<<end-begin<<endl;
+	// cout<<"Rotate image time: "<<end-begin<<endl;
+	saveTime("Parallelrotate180",end-begin);
 	return result;
 }
 
@@ -137,7 +148,7 @@ Mat rotateImage270(Mat image){
     double end;
 
 	begin = omp_get_wtime();
-	#pragma omp parallel for shared(image, result) private(row, col) collapse(2)
+	#pragma omp parallel for shared(image, result) private(row, col) collapse(2) schedule(dynamic)
 	for(col = 0; col < image.cols; col++){ 
 		for(row = 0; row < image.rows; row++){
 			Vec3b pixel = image.at<Vec3b>(row, col);
@@ -147,30 +158,32 @@ Mat rotateImage270(Mat image){
 
     
 	end = omp_get_wtime();
-	cout<<"Rotate image time: "<<end-begin<<endl;
+	// cout<<"Rotate image time: "<<end-begin<<endl;
+	saveTime("Parallelrotate270",end-begin);
 	return result;
 }
 
 void saveImage(string originalName, Mat image, string effect){
-	size_t ind = originalName.find_last_of(".");
-	string extension;
-	string fileName;
-    if(ind >= 0){
-    	extension = originalName.substr(ind+1);
-    	fileName = originalName.substr(0, ind);
-    }
-    else{
-    	extension = "jpeg";
-    	fileName = "file";
-    }
-	imwrite(fileName + "-" + effect + "." + extension, image);
+	// size_t ind = originalName.find_last_of(".");
+	// string extension;
+	// string fileName;
+ //    if(ind >= 0){
+ //    	extension = originalName.substr(ind+1);
+ //    	fileName = originalName.substr(0, ind);
+ //    }
+ //    else{
+ //    	extension = "jpeg";
+ //    	fileName = "file";
+ //    }
+ //    // cout<<fileName + "-" + effect + "." + extension;
+	// imwrite(fileName + "-" + effect + "." + extension, image);
 }
 
 int main( int argc, char** argv )
 {
-    if( argc != 2)
+    if( argc != 3)
     {
-     cout <<" Usage: display_image ImageToLoadAndDisplay" << endl;
+     cout <<" Usage: display_image ImageToLoadAndDisplay modificationType" << endl;
      return -1;
     }
 
@@ -182,44 +195,49 @@ int main( int argc, char** argv )
         cout << "Could not open or find the image" << std::endl ;
         return -1;
     }
-    cout<<"Size: "<<image.rows<<" x "<<image.cols<<endl;
+    // cout<<"Size: "<<image.rows<<" x "<<image.cols<<endl;
+    string parameter = argv[2];
+   // cout<<parameter;
+    // namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+    // imshow( "Display window", image );                // Show our image inside it.
 
-   
-    namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
-    imshow( "Display window", image );                // Show our image inside it.
+    omp_set_num_threads(2);
 
-    omp_set_num_threads(8);
-
-	/*
+	if(parameter=="invertColors"){
     //SAVE INVERT COLOR
     Mat result = invertColors(image);
-    namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+    // namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
     saveImage(argv[1], result, "invert-color");
-    imshow( "Display window", result ); 
-	
+    // imshow( "Display window", result ); 
+	}
     //SAVE BLUR
+    if(parameter=="blurImage"){
     Mat result2 = blurImage(image);
-    namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+    // namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
     saveImage(argv[1], result2, "blur-image");
-    imshow( "Display window", result2 ); 
-	*/
+    // imshow( "Display window", result2 ); 
+	}
+	if(parameter=="rotate90"){
     //ROtate image
 	Mat result3 = rotateImage90(image);
-    namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+    // namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
     saveImage(argv[1], result3, "rotate-image90");
-    imshow( "Display window", result3 ); 
-	
-	/*
+    // imshow( "Display window", result3 ); 
+	}
+
+	if(parameter=="rotate180"){
 	Mat result4 = rotateImage180(image);
-    namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
+    // namedWindow( "Display window", WINDOW_AUTOSIZE );// Create a window for display.
     saveImage(argv[1], result4, "rotate-image180");
-    imshow( "Display window", result4 ); 
-	  
+    // imshow( "Display window", result4 ); 
+	 }
+
+	if(parameter=="rotate270"){
 	Mat result5 = rotateImage270(image);
-    namedWindow( "Display window", WINDOW_AUTOSIZE );
+    // namedWindow( "Display window", WINDOW_AUTOSIZE );
     saveImage(argv[1], result5, "rotate-image270");
-    imshow( "Display window", result5 ); 
-	*/
+    // imshow( "Display window", result5 ); 
+	}
 
     waitKey(0);             // Wait for a keystroke in the window
     return 0;

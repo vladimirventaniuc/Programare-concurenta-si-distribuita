@@ -1,0 +1,246 @@
+secv invertColor:  0.006086 
+secv blurColor:  0.131664 
+secv rotate90:  0.003327 
+secv rotate180:  0.003544 
+secv rotate270:  0.006464 
+par invertColor:  0.003383 
+par blurColor:  0.061478 
+par rotate90:  0.001773 
+par rotate180:  0.002035 
+par rotate270:  0.001922 
+
+secv invertColor:  0.005866 
+secv blurColor:  0.133196 
+secv rotate90:  0.003235 
+secv rotate180:  0.003339 
+secv rotate270:  0.003256 
+par invertColor:  0.002905 
+par blurColor:  0.063007 
+par rotate90:  0.002979 
+par rotate180:  0.001706 
+par rotate270:  0.001769 
+
+secv invertColor:  1.735000 
+secv blurColor:  38.990567 
+secv rotate90:  1.027597 
+secv rotate180:  0.992147 
+secv rotate270:  1.026990 
+par invertColor:  0.556681 
+par blurColor:  13.867117 
+par rotate90:  0.317822 
+par rotate180:  0.300781 
+par rotate270:  0.325987 
+
+secv invertColor:  1.923608 
+secv blurColor:  42.711100 
+secv rotate90:  1.134982 
+secv rotate180:  1.094546 
+secv rotate270:  1.162176 
+par invertColor:  0.628742 
+par blurColor:  16.437080 
+par rotate90:  0.348660 
+par rotate180:  0.355643 
+par rotate270:  0.365932 
+
+secv invertColor:  1.743738 
+secv blurColor:  35.288400 
+secv rotate90:  0.904303 
+secv rotate180:  0.879475 
+secv rotate270:  0.939725 
+par invertColor:  0.574590 
+par blurColor:  12.513625 
+par rotate90:  0.308587 
+par rotate180:  0.346996 
+par rotate270:  0.364051 
+
+secv invertColor:  2.697220 
+secv blurColor:  57.259000 
+secv rotate90:  1.486377 
+secv rotate180:  1.425903 
+secv rotate270:  1.507450 
+par invertColor:  0.695693 
+par blurColor:  19.663700 
+par rotate90:  0.575883 
+par rotate180:  0.605348 
+par rotate270:  0.596512 
+--------
+par invertColor:  0.008370 
+par blurColor:  0.055765 
+par rotate90:  0.007092 
+par rotate180:  0.006720 
+par rotate270:  0.007188 
+
+par invertColor:  0.007579 
+par blurColor:  0.059977 
+par rotate90:  0.006774 
+par rotate180:  0.006071 
+par rotate270:  0.006177 
+
+par invertColor:  0.570361 
+par blurColor:  13.986150 
+par rotate90:  0.308635 
+par rotate180:  0.304305 
+par rotate270:  0.328169 
+
+par invertColor:  0.635627 
+par blurColor:  14.775980 
+par rotate90:  0.369657 
+par rotate180:  0.356735 
+par rotate270:  0.359750 
+
+par invertColor:  0.635248 
+par blurColor:  15.453789 
+par rotate90:  0.341033 
+par rotate180:  0.363470 
+par rotate270:  0.331019 
+
+par invertColor:  0.843408 
+par blurColor:  23.990960 
+par rotate90:  0.576550 
+par rotate180:  0.570654 
+par rotate270:  0.585621 
+----------------------------- 2 threads
+par invertColor:  0.003408 
+par blurColor:  0.084525 
+par rotate90:  0.002006 
+par rotate180:  0.002773 
+par rotate270:  0.001786 
+
+par invertColor:  0.003490 
+par blurColor:  0.088395 
+par rotate90:  0.002116 
+par rotate180:  0.002688 
+par rotate270:  0.001972 
+
+par invertColor:  0.918610 
+par blurColor:  26.097800 
+par rotate90:  0.588365 
+par rotate180:  0.591364 
+par rotate270:  0.604103 
+
+par invertColor:  1.055867 
+par blurColor:  27.365467 
+par rotate90:  0.663170 
+par rotate180:  0.676489 
+par rotate270:  0.692455 
+
+par invertColor:  0.787530 
+par blurColor:  21.235400 
+par rotate90:  0.574792 
+par rotate180:  0.563525 
+par rotate270:  0.570072 
+
+par invertColor:  1.680072 
+par blurColor:  43.505425 
+par rotate90:  0.792170 
+par rotate180:  0.809968 
+par rotate270:  0.830035 
+--- dynamic
+par invertColor:  0.003436 
+par blurColor:  0.054430 
+par rotate90:  0.003226 
+par rotate180:  0.002753 
+par rotate270:  0.002643 
+
+par invertColor:  0.003381 
+par blurColor:  0.058440 
+par rotate90:  0.004687 
+par rotate180:  0.003303 
+par rotate270:  0.002839 
+
+par invertColor:  0.846247 
+par blurColor:  13.326175 
+par rotate90:  0.619087 
+par rotate180:  0.614415 
+par rotate270:  0.617036 
+
+par invertColor:  0.751981 
+par blurColor:  15.259225 
+par rotate90:  0.706497 
+par rotate180:  0.741460 
+par rotate270:  0.761247 
+
+par invertColor:  0.810453 
+par blurColor:  13.108775 
+par rotate90:  0.589927 
+par rotate180:  0.587368 
+par rotate270:  0.600605 
+
+par invertColor:  1.273190 
+par blurColor:  23.363000 
+par rotate90:  0.887213 
+par rotate180:  0.852897 
+par rotate270:  0.872443 
+____________________-
+par invertColor:  0.003464 
+par blurColor:  0.052246 
+par rotate90:  0.002899 
+par rotate180:  0.002608 
+par rotate270:  0.002560 
+
+par invertColor:  0.003764 
+par blurColor:  0.057027 
+par rotate90:  0.002467 
+par rotate180:  0.003552 
+par rotate270:  0.002541 
+
+par invertColor:  0.845089 
+par blurColor:  13.348050 
+par rotate90:  0.620537 
+par rotate180:  0.607909 
+par rotate270:  0.627207 
+
+par invertColor:  0.944201 
+par blurColor:  14.705075 
+par rotate90:  0.697500 
+par rotate180:  0.679556 
+par rotate270:  0.700522 
+
+par invertColor:  0.822162 
+par blurColor:  12.858625 
+par rotate90:  0.596417 
+par rotate180:  0.595467 
+par rotate270:  0.595849 
+
+par invertColor:  1.137423 
+par blurColor:  23.601525 
+par rotate90:  0.872865 
+par rotate180:  0.835820 
+par rotate270:  0.984307 
+__________________________
+par invertColor:  0.004687 
+par blurColor:  0.091718 
+par rotate90:  0.003359 
+par rotate180:  0.007331 
+par rotate270:  0.004153 
+
+par invertColor:  0.004831 
+par blurColor:  0.087069 
+par rotate90:  0.003750 
+par rotate180:  0.003711 
+par rotate270:  0.003543 
+
+par invertColor:  1.314300 
+par blurColor:  23.780075 
+par rotate90:  0.865345 
+par rotate180:  0.857065 
+par rotate270:  0.881032 
+
+par invertColor:  1.498450 
+par blurColor:  26.452250 
+par rotate90:  1.008163 
+par rotate180:  1.004887 
+par rotate270:  1.010582 
+
+par invertColor:  1.250445 
+par blurColor:  22.763175 
+par rotate90:  0.824283 
+par rotate180:  0.816423 
+par rotate270:  0.843005 
+
+par invertColor:  2.300702 
+par blurColor:  44.272350 
+par rotate90:  1.738662 
+par rotate180:  1.754188 
+par rotate270:  1.639340 
+
